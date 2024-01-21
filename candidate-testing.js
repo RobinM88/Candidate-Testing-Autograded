@@ -23,30 +23,37 @@ candidateName = input.question(`"what is your first and last name? "`)
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-candidateAnswer = input.question(`${question}`)
-for (let i =0; i < questions.length; i++){
-  candidateAnswers.push(input.question(questions[i]));
-}
+  candidateAnswer = input.question(`${question}`)
+  for (let i =0; i < questions.length; i++){
+    candidateAnswers.push(input.question(questions[i]));
+  }
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+let points = 0;
+const candidateAnswersLower = candidateAnswers.map(answer => answer.toLowerCase()) 
+const correctAnswersLower = correctAnswers.map(answer => answer.toLowerCase()) 
+
 if (candidateAnswer === correctAnswer) {
   console.log("Correct. ")
 } else {
   console.log("Wrong. ")
-} 
+}
+
 for (let i = 0; i < questions.length; i++) {
-if (candidateAnswers[i] === correctAnswers[i]){
+  if (candidateAnswersLower[i] === correctAnswersLower[i]){
   console.log(`${i + 1}: Correct! \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
-} else {
-    console.log(`${i + 1}: Wrong. \n Your Answer: ${candidateAnswers[i]} \n Correct Answer${correctAnswers[i]}`);
-}}
+  points++
+  } else {
+  console.log(`${i + 1}: Wrong. \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
+  }
+}
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = (points / questions.length) * 100;;  //TODO 3.2 use this variable to calculate the candidates score.
 
-
+console.log(`Candidate's Score: ${grade}%\n`);
   return grade;
 }
 
