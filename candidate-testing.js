@@ -33,21 +33,21 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 let points = 0;
-let candidateAnswersLower = candidateAnswers.map(answer => answer.toLowerCase()) 
-let correctAnswersLower = correctAnswers.map(answer => answer.toLowerCase()) 
+// let candidateAnswersLower = candidateAnswers.map(answer => answer.toLowerCase()) 
+// let correctAnswersLower = correctAnswers.map(answer => answer.toLowerCase()) 
 
-if (candidateAnswer === correctAnswer) {
-  console.log("Correct. ")
-} else {
-  console.log("Wrong. ")
-}
+// if (candidateAnswer === correctAnswer) {
+//   console.log("Correct. ")
+// } else {
+//   console.log("Wrong. ")
+// }
 
 for (let i = 0; i < questions.length; i++) {
-  if (candidateAnswersLower[i] === correctAnswersLower[i]){
-  console.log(`${i + 1}: Correct! \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+  console.log(`${i + 1}: ${questions[i]} \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
   points++;
   } else {
-  console.log(`${i + 1}: Wrong. \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
+  console.log(`${i + 1}: ${questions[i]} \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
   }
 }
 
