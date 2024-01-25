@@ -33,8 +33,8 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 let points = 0;
-const candidateAnswersLower = candidateAnswers.map(answer => answer.toLowerCase()) 
-const correctAnswersLower = correctAnswers.map(answer => answer.toLowerCase()) 
+let candidateAnswersLower = candidateAnswers.map(answer => answer.toLowerCase()) 
+let correctAnswersLower = correctAnswers.map(answer => answer.toLowerCase()) 
 
 if (candidateAnswer === correctAnswer) {
   console.log("Correct. ")
@@ -45,7 +45,7 @@ if (candidateAnswer === correctAnswer) {
 for (let i = 0; i < questions.length; i++) {
   if (candidateAnswersLower[i] === correctAnswersLower[i]){
   console.log(`${i + 1}: Correct! \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
-  points++
+  points++;
   } else {
   console.log(`${i + 1}: Wrong. \n Your Answer: ${candidateAnswers[i]} \n Correct Answer: ${correctAnswers[i]}`);
   }
